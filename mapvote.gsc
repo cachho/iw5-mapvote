@@ -54,7 +54,15 @@ mapvote() {
         wait 1;
     }
     level notify("mapvote_over");
-    setdvar("sv_maprotation", "dsr " + level.mapvotedata[0] + "map " + level.mapvotedata[1][0]);
+    besti = 0;
+    bestv = -1;
+    for(i = 0; i < 6; i++) {
+        if(level.mapvoteui[i + 13].value > bestv) {
+            besti = i;
+            bestv = v;
+        }
+    }
+    setdvar("sv_maprotation", "dsr " + level.mapvotedata[0] + " map " + level.mapvotedata[1][level.mapvoteindices[besti]]);
 }
 
 input() {
@@ -107,7 +115,7 @@ input() {
 text(text, align, relative, x, y, fontscale, font, color, alpha, sort, server, value) {
     element = spawnstruct();
     if(server) {
-        element = level createserverfontstring(font, fontscale);
+        element = createserverfontstring(font, fontscale);
     } else {
         element = self createfontstring(font, fontscale);
     }
