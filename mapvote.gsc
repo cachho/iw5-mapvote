@@ -25,7 +25,7 @@ finalkillcamhook() {
 }
 
 mapvote() {
-    //if (!waslastround()) return;
+    if (!waslastround()) return;
     level.mapvoteui[0] = shader("white", "TOP", "TOP", 0, 120, 350, 20, (0.157,0.173,0.161), 1, 1, true);
     level.mapvoteui[1] = shader("white", "TOP", "TOP", 0, 140, 350, 60, (0.310,0.349,0.275), 1, 1, true);
     level.mapvoteui[2] = shader("gradient_top", "TOP", "TOP", 0, 140, 350, 2, (1,1,1), 1, 2, true);
