@@ -6,9 +6,8 @@ init() {
     precacheshader("gradient_fadein");
     precacheshader("gradient_top");
     precacheshader("white");
-    level.mapvotedata[0] = strtok(getdvar("sv_maprotation"), " ")[1];
-    level.mapvotedata[1] = strtok("mp_alpha#mp_bootleg#mp_bravo#mp_carbon#mp_dome#mp_exchange#mp_hardhat#mp_interchange#mp_lambeth#mp_mogadishu#mp_paris#mp_plaza2#mp_radar#mp_seatown#mp_underground#mp_village#mp_terminal_cls#mp_rust", "#");
-    level.mapvotedata[2] = strtok("European city center. Great for Team \nDefender.#Medium sized Asian market. Fun for all game \nmodes.#African colonial settlement. Fight to control \nthe center.#Medium sized refinery. Great for any number \nof players.#Small outpost in the desert. Fast and frantic \naction.#Urban map with wide streets. Good for long \nand short range fights.#A small construction site. Fast paced, close \nquarter action.#Destroyed freeway. Great for a wide range of \nspaces and styles.#Derelict Russian ghost town. Great for \ncareful, tactical engagements.#Crash site in an African city. Classic urban \ncombat.#Parisian district. Great for Domination and Kill \nConfirmed.#Medium sized German mall. Intense Search & \nDestroy games.#Large Siberian airbase. Great for epic large \nbattles.#A costal town. Narrow streets bring hectic, \nclose encounters.#Small subway station. Fast paced action both \ninside and out.#Large African village. Great for all game \nmodes.#Russian airport terminal under siege. The \nclassic fan favorite is back.#Tiny desert sandstorm. Fast-paced action on \na small map.", "#");
+    level.mapvotemaps = strtok("mp_alpha#mp_bootleg#mp_bravo#mp_carbon#mp_dome#mp_exchange#mp_hardhat#mp_interchange#mp_lambeth#mp_mogadishu#mp_paris#mp_plaza2#mp_radar#mp_seatown#mp_underground#mp_village#mp_terminal_cls#mp_rust", "#");
+    level.mapvotedescs = strtok("European city center. Great for Team \nDefender.#Medium sized Asian market. Fun for all game \nmodes.#African colonial settlement. Fight to control \nthe center.#Medium sized refinery. Great for any number \nof players.#Small outpost in the desert. Fast and frantic \naction.#Urban map with wide streets. Good for long \nand short range fights.#A small construction site. Fast paced, close \nquarter action.#Destroyed freeway. Great for a wide range of \nspaces and styles.#Derelict Russian ghost town. Great for \ncareful, tactical engagements.#Crash site in an African city. Classic urban \ncombat.#Parisian district. Great for Domination and Kill \nConfirmed.#Medium sized German mall. Intense Search & \nDestroy games.#Large Siberian airbase. Great for epic large \nbattles.#A costal town. Narrow streets bring hectic, \nclose encounters.#Small subway station. Fast paced action both \ninside and out.#Large African village. Great for all game \nmodes.#Russian airport terminal under siege. The \nclassic fan favorite is back.#Tiny desert sandstorm. Fast-paced action on \na small map.", "#");
     level.mapvoteindices = randomindices();
     replacefunc(maps\mp\gametypes\_gamelogic::waittillFinalKillcamDone, ::finalkillcamhook);
 }
@@ -39,12 +38,12 @@ mapvote() {
     level.mapvoteui[10] = shader("white", "TOP", "TOP", 0, 340, 350, 20, (0.310,0.349,0.275), 1, 1, true);
     level.mapvoteui[11] = shader("gradient_top", "TOP", "TOP", 0, 320, 350, 2, (1,1,1), 1, 2, true);
     level.mapvoteui[12] = text(&"VOTING PHASE: ", "LEFT", "TOP", -170, 130, 1, "hudSmall", (1,1,1), 1, 3, true, 30);
-    level.mapvoteui[13] = text(maptostring(level.mapvotedata[1][level.mapvoteindices[0]]), "LEFT", "TOP", -170, 210, 1.5, "normal", (1,1,1), 1, 3, true, 0);
-    level.mapvoteui[14] = text(maptostring(level.mapvotedata[1][level.mapvoteindices[1]]), "LEFT", "TOP", -170, 230, 1.5, "normal", (1,1,1), 1, 3, true, 0);
-    level.mapvoteui[15] = text(maptostring(level.mapvotedata[1][level.mapvoteindices[2]]), "LEFT", "TOP", -170, 250, 1.5, "normal", (1,1,1), 1, 3, true, 0);
-    level.mapvoteui[16] = text(maptostring(level.mapvotedata[1][level.mapvoteindices[3]]), "LEFT", "TOP", -170, 270, 1.5, "normal", (1,1,1), 1, 3, true, 0);
-    level.mapvoteui[17] = text(maptostring(level.mapvotedata[1][level.mapvoteindices[4]]), "LEFT", "TOP", -170, 290, 1.5, "normal", (1,1,1), 1, 3, true, 0);
-    level.mapvoteui[18] = text(maptostring(level.mapvotedata[1][level.mapvoteindices[5]]), "LEFT", "TOP", -170, 310, 1.5, "normal", (1,1,1), 1, 3, true, 0);
+    level.mapvoteui[13] = text(maptostring(level.mapvotemaps[level.mapvoteindices[0]]), "LEFT", "TOP", -170, 210, 1.5, "normal", (1,1,1), 1, 3, true, 0);
+    level.mapvoteui[14] = text(maptostring(level.mapvotemaps[level.mapvoteindices[1]]), "LEFT", "TOP", -170, 230, 1.5, "normal", (1,1,1), 1, 3, true, 0);
+    level.mapvoteui[15] = text(maptostring(level.mapvotemaps[level.mapvoteindices[2]]), "LEFT", "TOP", -170, 250, 1.5, "normal", (1,1,1), 1, 3, true, 0);
+    level.mapvoteui[16] = text(maptostring(level.mapvotemaps[level.mapvoteindices[3]]), "LEFT", "TOP", -170, 270, 1.5, "normal", (1,1,1), 1, 3, true, 0);
+    level.mapvoteui[17] = text(maptostring(level.mapvotemaps[level.mapvoteindices[4]]), "LEFT", "TOP", -170, 290, 1.5, "normal", (1,1,1), 1, 3, true, 0);
+    level.mapvoteui[18] = text(maptostring(level.mapvotemaps[level.mapvoteindices[5]]), "LEFT", "TOP", -170, 310, 1.5, "normal", (1,1,1), 1, 3, true, 0);
     level.mapvoteui[19] = text("Up ^2[{+attack}] ^7Down ^2[{+speed_throw}]", "LEFT", "TOP", -170, 330, 1.5, "normal", (1,1,1), 1, 3, true);
     level.mapvoteui[20] = text("Vote ^2[{+activate}]", "RIGHT", "TOP", 170, 330, 1.5, "normal", (1,1,1), 1, 3, true);
     foreach(player in level.players) player thread input();
@@ -62,7 +61,8 @@ mapvote() {
             bestv = level.mapvoteui[i + 13].value;
         }
     }
-    setdvar("sv_maprotation", "dsr " + level.mapvotedata[0] + " map " + level.mapvotedata[1][level.mapvoteindices[besti]]);
+    print("debug: " + level.mapvotemaps[level.mapvoteindices[besti]]);
+    executeCommand("map " + level.mapvotemaps[level.mapvoteindices[besti]]);
 }
 
 input() {
@@ -71,7 +71,7 @@ input() {
     index = 0;
     selected = -1;
     select[0] = self text((index + 1) + "/6", "RIGHT", "TOP", 170, 130, 1.5, "normal", (1,1,1), 1, 3, false);
-    select[1] = self text(level.mapvotedata[2][level.mapvoteindices[index]], "LEFT", "TOP", -170, 150, 1.5, "normal", (1,1,1), 1, 3, false);
+    select[1] = self text(level.mapvotedescs[level.mapvoteindices[index]], "LEFT", "TOP", -170, 150, 1.5, "normal", (1,1,1), 1, 3, false);
     select[2] = self shader("gradient_fadein", "TOP", "TOP", 0, 200, 350, 20, (1,1,1), 0.5, 2, false);
     select[3] = self shader("gradient_top", "TOP", "TOP", 0, 220, 350, 2, (1,1,1), 1, 2, false);
     self notifyonplayercommand("up", "+attack");
@@ -83,14 +83,14 @@ input() {
         if(command == "up" && index > 0) {
             index--;
             select[0] settext((index + 1) + "/6");
-            select[1] settext(level.mapvotedata[2][level.mapvoteindices[index]]);
+            select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y -= 20;
             select[3].y -= 20;
             self playlocalsound("mouse_over");
         } else if(command == "down" && index < 5) {
             index++;
             select[0] settext((index + 1) + "/6");
-            select[1] settext(level.mapvotedata[2][level.mapvoteindices[index]]);
+            select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y += 20;
             select[3].y += 20;
             self playlocalsound("mouse_over");
@@ -163,7 +163,7 @@ shader(shader, align, relative, x, y, width, height, color, alpha, sort, server)
 randomindices() {
     array = [];
     for (i = 0; i < 6; i++) {
-        array[i] = randomint(level.mapvotedata[1].size);
+        array[i] = randomint(level.mapvotemaps.size);
         for (j = 0; j < i; j++) {
             if (array[i] == array[j]) {
                 i--;
