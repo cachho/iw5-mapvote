@@ -61,10 +61,10 @@ mapvote() {
             bestv = level.mapvoteui[i + 13].value;
         }
     }
-    //TODO: In hindsight it's probably better to just change the dvar so the final scoreboard isn't skipped,
-    //feel free to do this (You can get the current sv_maprotation to get the name of the DSR being used,
-    //or provide it directly).
+    //Note: We wait to prevent the scoreboard popping up at the end for a cleaner transition (Don't wait infinitely as a failsafe).
+    //TODO: Proper manipulation of sv_maprotation is the better way to do this as it would allow the final scoreboard to show.
     executeCommand("map " + level.mapvotemaps[level.mapvoteindices[besti]]);
+    wait 5;
 }
 
 input() {
