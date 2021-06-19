@@ -59,7 +59,7 @@ mapvote() {
     for(i = 0; i < 6; i++) {
         if(level.mapvoteui[i + 13].value > bestv) {
             besti = i;
-            bestv = v;
+            bestv = level.mapvoteui[i + 13].value;
         }
     }
     setdvar("sv_maprotation", "dsr " + level.mapvotedata[0] + " map " + level.mapvotedata[1][level.mapvoteindices[besti]]);
