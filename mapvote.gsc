@@ -133,7 +133,7 @@ shader(shader, align, relative, x, y, width, height, color, alpha, sort, server)
     } else {
         element = newclienthudelem(self);
     }
-    element.elemtype = "bar";
+    element.elemtype = "icon";
     element.hidewheninmenu = true;
     element.shader = shader;
     element.width = width;
