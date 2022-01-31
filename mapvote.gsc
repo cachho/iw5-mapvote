@@ -65,7 +65,7 @@ mapvote() {
     }
     //Note: We wait to prevent the scoreboard popping up at the end for a cleaner transition (Don't wait infinitely as a failsafe).
     //TODO: Proper manipulation of sv_maprotation is the better way to do this as it would allow the final scoreboard to show.
-    executeCommand("map " + level.mapvotemaps[level.mapvoteindices[besti]]);
+    cmdexec("map " + level.mapvotemaps[level.mapvoteindices[besti]]);
     wait 5;
 }
 
