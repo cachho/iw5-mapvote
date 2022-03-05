@@ -31,13 +31,9 @@ mapvote() {
     level.mapvoteui[2] = shader("gradient_top", "TOP", "TOP", 0, 140, 350, 2, (1,1,1), 1, 2, true);
     level.mapvoteui[3] = shader("white", "TOP", "TOP", 0, 200, 350, 20, (0.212,0.231,0.220), 1, 1, true);
     level.mapvoteui[4] = shader("white", "TOP", "TOP", 0, 220, 350, 20, (0.180,0.196,0.188), 1, 1, true);
-    level.mapvoteui[5] = shader("white", "TOP", "TOP", 0, 240, 350, 20, (0.212,0.231,0.220), 1, 1, true);
-    level.mapvoteui[6] = shader("white", "TOP", "TOP", 0, 260, 350, 20, (0.180,0.196,0.188), 1, 1, true);
-    level.mapvoteui[7] = shader("white", "TOP", "TOP", 0, 280, 350, 20, (0.212,0.231,0.220), 1, 1, true);
-    level.mapvoteui[8] = shader("white", "TOP", "TOP", 0, 300, 350, 20, (0.180,0.196,0.188), 1, 1, true);
-    level.mapvoteui[9] = shader("white", "TOP", "TOP", 0, 320, 350, 20, (0.157,0.173,.161), 1, 1, true);
-    level.mapvoteui[10] = shader("white", "TOP", "TOP", 0, 340, 350, 20, (0.310,0.349,0.275), 1, 1, true);
-    level.mapvoteui[11] = shader("gradient_top", "TOP", "TOP", 0, 320, 350, 2, (1,1,1), 1, 2, true);
+    level.mapvoteui[9] = shader("white", "TOP", "TOP", 0, 240, 350, 20, (0.157,0.173,.161), 1, 1, true);
+    level.mapvoteui[10] = shader("white", "TOP", "TOP", 0, 260, 350, 20, (0.310,0.349,0.275), 1, 1, true);
+    level.mapvoteui[11] = shader("gradient_top", "TOP", "TOP", 0, 240, 350, 2, (1,1,1), 1, 2, true);
     level.mapvoteui[12] = text(&"VOTING PHASE: ", "LEFT", "TOP", -170, 130, 1, "hudSmall", (1,1,1), 1, 3, true, 30);
     level.mapvoteui[13] = text(maptostring(level.mapvotemaps[level.mapvoteindices[0]]), "LEFT", "TOP", -170, 210, 1.5, "normal", (1,1,1), 1, 3, true, 0);
     level.mapvoteui[14] = text(maptostring(level.mapvotemaps[level.mapvoteindices[1]]), "LEFT", "TOP", -170, 230, 1.5, "normal", (1,1,1), 1, 3, true, 0);
