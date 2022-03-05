@@ -74,7 +74,7 @@ input() {
     self endon("mapvote_over");
     index = 0;
     selected = -1;
-    select[0] = self text((index + 1) + "/6", "RIGHT", "TOP", 170, 130, 1.5, "normal", (1,1,1), 1, 3, false);
+    select[0] = self text((index + 1) + "/2", "RIGHT", "TOP", 170, 130, 1.5, "normal", (1,1,1), 1, 3, false);
     select[1] = self text(level.mapvotedescs[level.mapvoteindices[index]], "LEFT", "TOP", -170, 150, 1.5, "normal", (1,1,1), 1, 3, false);
     select[2] = self shader("gradient_fadein", "TOP", "TOP", 0, 200, 350, 20, (1,1,1), 0.5, 2, false);
     select[3] = self shader("gradient_top", "TOP", "TOP", 0, 220, 350, 2, (1,1,1), 1, 2, false);
@@ -90,14 +90,14 @@ input() {
         command = self waittill_any_return("up", "down", "select");
         if(command == "up" && index > 0) {
             index--;
-            select[0] settext((index + 1) + "/6");
+            select[0] settext((index + 1) + "/2");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y -= 20;
             select[3].y -= 20;
             self playlocalsound("mouse_over");
-        } else if(command == "down" && index < 5) {
+        } else if(command == "down" && index < 1) {
             index++;
-            select[0] settext((index + 1) + "/6");
+            select[0] settext((index + 1) + "/2");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y += 20;
             select[3].y += 20;
