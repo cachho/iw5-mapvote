@@ -6,6 +6,7 @@ init() {
     precacheshader("gradient_fadein");
     precacheshader("gradient_top");
     precacheshader("white");
+    // Note set maps in rotation here. Otherwise maps will be displayed as options that can't be played. Only level.mapvotemaps needs to be changed.
     // level.mapvotemaps = strtok("mp_alpha#mp_bootleg#mp_bravo#mp_carbon#mp_dome#mp_exchange#mp_hardhat#mp_interchange#mp_lambeth#mp_mogadishu#mp_paris#mp_plaza2#mp_radar#mp_seatown#mp_underground#mp_village#mp_terminal_cls#mp_rust#mp_highrise#mp_italy#mp_park#mp_overwatch#mp_morningwood#mp_meteora#mp_cement#mp_qadeem#mp_restrepo_ss#mp_hillside_ss#mp_courtyard_ss#mp_aground_ss#mp_six_ss#mp_burn_ss#mp_crosswalk_ss#shipbreaker#mp_roughneck#mp_moab#mp_boardwalk#mp_nola#mp_favela#mp_nuked#mp_nightshift", "#");
     level.mapvotemaps = strtok("mp_alpha#mp_bootleg#mp_bravo#mp_carbon#mp_dome#mp_exchange#mp_hardhat#mp_interchange#mp_lambeth#mp_mogadishu#mp_paris#mp_plaza2#mp_radar#mp_seatown#mp_underground#mp_village#mp_terminal_cls","#");
     level.mapvotedescs = strtok("European city center. Great for Team \nDefender.#Medium sized Asian market. Fun for all game \nmodes.#African colonial settlement. Fight to control \nthe center.#Medium sized refinery. Great for any number \nof players.#Small outpost in the desert. Fast and frantic \naction.#Urban map with wide streets. Good for long \nand short range fights.#A small construction site. Fast paced, close \nquarter action.#Destroyed freeway. Great for a wide range of \nspaces and styles.#Derelict Russian ghost town. Great for \ncareful, tactical engagements.#Crash site in an African city. Classic urban \ncombat.#Parisian district. Great for Domination and Kill \nConfirmed.#Medium sized German mall. Intense Search & \nDestroy games.#Large Siberian airbase. Great for epic large \nbattles.#A costal town. Narrow streets bring hectic, \nclose encounters.#Small subway station. Fast paced action both \ninside and out.#Large African village. Great for all game \nmodes.#Russian airport terminal under siege. The \nclassic fan favorite is back.#Tiny desert sandstorm. Fast-paced action on \na small map.#Classic MW2's Rooftop skyscraper.#A small coastal Italian town. Features tight \nclose quarter combat.#Large New York park set in autumn. Great for \nlong distance fire fights.#Unfinished top of a skyscraper. Features \ntense Demolition matches.#Air Force One crash site. Very open map with a \nfew homes that provide cover.#Greek Monastery on a sandstone pillar. \nFeatures both medium and long range combat.#Korean cement factory. Great for close \nquarter combat and tactical maneuvering.#Luxury resort in Dubai. Features Intense \nDomination maches# Remote outpost in Afghanistan. Tight, Sparse \ninteriors linked by open lanes and overlooks #Upscale beachside retreat. Multi-tiered run \nand gun combat haven. #Roman ruins near Mt. Vesuvius. Strong \ninteriors offset by multi-level flanks.#Shipwreck on the irish coast. Open layout \nallows for long distance engagements#American farm in the path of a monster \ntornado. Sparse interiors and well-defined lanes.#War torn section of mid-east highway. \nPlentiful cover and close quarter fighting#Metro intersection on lockdown. Strong \ninterior locations and tactical urban combat#Ship scavenging operation on the indian \ncoast. Dominant overwatch positions and \n strong flank routes.#Deep Water drilling rig. Medium to long range \nengagements between multi-tiered, joined \nplatforms#Abandoned Utah mining settlement. Features \nan open layout and strong flanks.#Jersey shore amusement boardwalk. \nElevated main path set off by close quarters. \nflanks#New Orleans under assault. Features \nfast-paced matches with abundant close \nquarters fighting.#Alleyways of Brazil. Great for all modes\nand all sizes.#A deserted nuke testing facility used in the Cold War.#Urban City fighting. In and out of apartments/nclose range engagements.", "#");
@@ -67,7 +68,7 @@ input() {
     self endon("mapvote_over");
     index = 0;
     selected = -1;
-    select[0] = self text((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size, "RIGHT", "TOP", 170, 130, 1.5, "normal", (1,1,1), 1, 3, false);
+    select[0] = self text((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast", "RIGHT", "TOP", 170, 130, 1.5, "normal", (1,1,1), 1, 3, false);
     select[1] = self text(level.mapvotedescs[level.mapvoteindices[index]], "LEFT", "TOP", -170, 150, 1.5, "normal", (1,1,1), 1, 3, false);
     select[2] = self shader("gradient_fadein", "TOP", "TOP", 0, 200, 350, 20, (1,1,1), 0.5, 2, false);
     select[3] = self shader("gradient_top", "TOP", "TOP", 0, 220, 350, 2, (1,1,1), 1, 2, false);
@@ -83,14 +84,14 @@ input() {
         command = self waittill_any_return("up", "down", "select");
         if(command != "select" && index == 1) {
             index--;
-            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size);
+            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y -= 20;
             select[3].y -= 20;
             self playlocalsound("mouse_over");
         } else if(command != "select" && index == 0) {
             index++;
-            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size);
+            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y += 20;
             select[3].y += 20;
