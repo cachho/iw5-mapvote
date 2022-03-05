@@ -57,7 +57,7 @@ mapvote() {
     level notify("mapvote_over");
     besti = 0;
     bestv = -1;
-    for(i = 0; i < 6; i++) {
+    for(i = 0; i < 2; i++) {
         if(level.mapvoteui[i + 13].value > bestv) {
             besti = i;
             bestv = level.mapvoteui[i + 13].value;
@@ -170,7 +170,7 @@ shader(shader, align, relative, x, y, width, height, color, alpha, sort, server)
 
 randomindices() {
     array = [];
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < 2; i++) {
         array[i] = randomint(level.mapvotemaps.size);
         for (j = 0; j < i; j++) {
             if (array[i] == array[j]) {
