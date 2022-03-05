@@ -39,7 +39,7 @@ mapvote() {
     level.mapvoteui[14] = text(maptostring(level.mapvotemaps[level.mapvoteindices[1]]), "LEFT", "TOP", -170, 230, 1.5, "normal", (1,1,1), 1, 3, true, 0);
     //TODO: speed_throw/toggleads_throw will show bound/unbound for hold/toggle ads players. compromise may be to use forward/back, depending on how controller
     //bindings handle this.
-    level.mapvoteui[19] = text("Up ^2[{+attack}] ^7Down ^2[{+toggleads_throw}]", "LEFT", "TOP", -170, 250, 1.5, "normal", (1,1,1), 1, 3, true);
+    level.mapvoteui[19] = text("Move cursor ^2[{+attack}]", "LEFT", "TOP", -170, 250, 1.5, "normal", (1,1,1), 1, 3, true);
     level.mapvoteui[20] = text("Vote ^2[{+activate}]", "RIGHT", "TOP", 170, 250, 1.5, "normal", (1,1,1), 1, 3, true);
     foreach(player in level.players) player thread input();
     for(i = 0; i <= 30; i++) {
