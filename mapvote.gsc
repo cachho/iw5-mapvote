@@ -81,14 +81,14 @@ input() {
     self notifyonplayercommand("select", "+frag");
     for(;;) {
         command = self waittill_any_return("up", "down", "select");
-        if(command == "up" && index > 0) {
+        if((command == "down" || command == "up") && index == 1) {
             index--;
             select[0] settext((index + 1) + "/2");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y -= 20;
             select[3].y -= 20;
             self playlocalsound("mouse_over");
-        } else if(command == "down" && index < 1) {
+        } else if((command == "down" || command == "up") && index == 0) {
             index++;
             select[0] settext((index + 1) + "/2");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
