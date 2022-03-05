@@ -52,13 +52,13 @@ mapvote() {
     besti = 0;
     bestv = -1;
     if(level.mapvoteui[13].value > level.mapvoteui[14].value) {
-        besti = 0
+        besti = 0;
         bestv = level.mapvoteui[13].value;
     } else if(level.mapvoteui[13].value < level.mapvoteui[14].value) {
-        besti = 1
+        besti = 1;
         bestv = level.mapvoteui[14].value;
     } else {
-        besti = randomint(1)
+        besti = randomint(1);
         bestv = level.mapvoteui[13+besti].value;
     }
 
