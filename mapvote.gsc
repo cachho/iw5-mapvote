@@ -58,7 +58,7 @@ mapvote() {
         besti = 1;
         bestv = level.mapvoteui[14].value;
     } else {
-        besti = randomint(1);
+        besti = randomint(2);
         bestv = level.mapvoteui[13+besti].value;
     }
 
