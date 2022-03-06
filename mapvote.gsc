@@ -89,14 +89,12 @@ input() {
         command = self waittill_any_return("up", "down", "select");
         if(command != "select" && index == 1) {
             index--;
-            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y -= 20;
             select[3].y -= 20;
             self playlocalsound("mouse_over");
         } else if(command != "select" && index == 0) {
             index++;
-            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y += 20;
             select[3].y += 20;
@@ -106,6 +104,7 @@ input() {
                 selected = index;
                 level.mapvoteui[selected + 13].value += 1;
                 level.mapvoteui[selected + 13] setvalue(level.mapvoteui[selected + 13].value);
+                select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
                 self playlocalsound("mouse_click");
             } else if(selected != index) {
                 level.mapvoteui[selected + 13].value -= 1;
@@ -113,6 +112,7 @@ input() {
                 selected = index;
                 level.mapvoteui[selected + 13].value += 1;
                 level.mapvoteui[selected + 13] setvalue(level.mapvoteui[selected + 13].value);
+                select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
                 self playlocalsound("mouse_click");
             }
         }
