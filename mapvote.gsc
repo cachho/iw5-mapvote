@@ -43,8 +43,8 @@ mapvote() {
     level.mapvoteui[19] = text("Move cursor ^2[{+attack}]", "LEFT", "TOP", -170, 250, 1.5, "normal", (1,1,1), 1, 3, true);
     level.mapvoteui[20] = text("Vote ^2[{+activate}]", "RIGHT", "TOP", 170, 250, 1.5, "normal", (1,1,1), 1, 3, true);
     foreach(player in level.players) player thread input();
-    for(i = 0; i <= 30; i++) {
-        level.mapvoteui[12] setvalue(30 - i);
+    for(i = 0; i <= 20; i++) {
+        level.mapvoteui[12] setvalue(20 - i);
         //playsoundonplayers("trophy_detect_projectile");
         wait 1;
     }
