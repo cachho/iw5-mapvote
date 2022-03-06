@@ -51,12 +51,17 @@ mapvote() {
     level notify("mapvote_over");
     besti = 0;
     bestv = -1;
-    for(i = 0; i < 2; i++) {
-        if(level.mapvoteui[i + 13].value > bestv) {
-            besti = i;
-            bestv = level.mapvoteui[i + 13].value;
-        }
+    if(level.mapvoteui[13].value > level.mapvoteui[14].value) {
+        besti = 0;
+        bestv = level.mapvoteui[13].value;
+    } else if(level.mapvoteui[13].value < level.mapvoteui[14].value) {
+        besti = 1;
+        bestv = level.mapvoteui[14].value;
+    } else {
+        besti = randomint(2);
+        bestv = level.mapvoteui[13+besti].value;
     }
+
     //Note: We wait to prevent the scoreboard popping up at the end for a cleaner transition (Don't wait infinitely as a failsafe).
     //TODO: Proper manipulation of sv_maprotation is the better way to do this as it would allow the final scoreboard to show.
     cmdexec("map " + level.mapvotemaps[level.mapvoteindices[besti]]);
