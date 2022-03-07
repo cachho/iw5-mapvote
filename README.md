@@ -18,5 +18,5 @@ Additionally, six maps showed to have a high chance to give the same selection o
 * 20 seconds timer because less time should be needed to decide between two maps.
 
 ## Screenshot
-![Preview](https://raw.githubusercontent.com/callanb/iw5-mapvote/main/iw5-mapvote-preview.png)
+![Preview](https://raw.githubusercontent.com/cachho/iw5-mapvote/main/iw5-mapvote-preview.png)
 
