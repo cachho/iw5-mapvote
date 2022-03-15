@@ -46,7 +46,7 @@ mapvote() {
     for(i = 0; i <= 20; i++) {
         level.mapvoteui[12] setvalue(20 - i);
         playsoundonplayers("trophy_detect_projectile");
-        select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
+        select[0] = self text((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast", "RIGHT", "TOP", 170, 130, 1.5, "normal", (1,1,1), 1, 3, false);
         wait 1;
         
     }
@@ -80,7 +80,7 @@ input() {
     select[2] = self shader("gradient_fadein", "TOP", "TOP", 0, 200, 350, 20, (1,1,1), 0.5, 2, false);
     select[3] = self shader("gradient_top", "TOP", "TOP", 0, 220, 350, 2, (1,1,1), 1, 2, false);
     self notifyonplayercommand("up", "+attack");
-	self notifyonplayercommand("up", "+forward");
+    self notifyonplayercommand("up", "+forward");
     self notifyonplayercommand("down", "+toggleads_throw");
     self notifyonplayercommand("down", "+speed_throw");
     self notifyonplayercommand("down", "+back");
@@ -91,12 +91,14 @@ input() {
         command = self waittill_any_return("up", "down", "select");
         if(command != "select" && index == 1) {
             index--;
+            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y -= 20;
             select[3].y -= 20;
             self playlocalsound("mouse_over");
         } else if(command != "select" && index == 0) {
             index++;
+            select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
             select[1] settext(level.mapvotedescs[level.mapvoteindices[index]]);
             select[2].y += 20;
             select[3].y += 20;
