@@ -46,7 +46,9 @@ mapvote() {
     for(i = 0; i <= 20; i++) {
         level.mapvoteui[12] setvalue(20 - i);
         //playsoundonplayers("trophy_detect_projectile");
+        select[0] settext((level.mapvoteui[13].value+level.mapvoteui[14].value) + "/" + level.players.size +" votes cast");
         wait 1;
+        
     }
     level notify("mapvote_over");
     besti = 0;
